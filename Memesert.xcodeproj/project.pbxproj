@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C5EE2A3515FD50110014F8CA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EE2A3415FD50110014F8CA /* Cocoa.framework */; };
+		C5EE2A3F15FD50110014F8CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A3D15FD50110014F8CA /* InfoPlist.strings */; };
+		C5EE2A4115FD50110014F8CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A4015FD50110014F8CA /* main.m */; };
+		C5EE2A4515FD50110014F8CA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A4315FD50110014F8CA /* Credits.rtf */; };
+		C5EE2A4815FD50110014F8CA /* MSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A4715FD50110014F8CA /* MSAppDelegate.m */; };
+		C5EE2A4B15FD50120014F8CA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A4915FD50120014F8CA /* MainMenu.xib */; };
+		C5EE2A4E15FD50120014F8CA /* Memesert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A4C15FD50120014F8CA /* Memesert.xcdatamodeld */; };
+		C5EE2A5515FD61250014F8CA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EE2A5415FD61250014F8CA /* Carbon.framework */; };
+		C5EE2A7715FD72CB0014F8CA /* Meme+Support.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */; };
+		C5EE2A7A15FD73140014F8CA /* Keyword+Support.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A7915FD73140014F8CA /* Keyword+Support.m */; };
+		C5EE2A8015FD73420014F8CA /* Meme.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A7F15FD73420014F8CA /* Meme.m */; };
+		C5EE2A8315FD73420014F8CA /* URLEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A8215FD73420014F8CA /* URLEntry.m */; };
+		C5EE2A8615FD73420014F8CA /* Keyword.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A8515FD73420014F8CA /* Keyword.m */; };
+		C5EE2A8915FD74FF0014F8CA /* MSMemesertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C5EE2A3015FD50110014F8CA /* Memesert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memesert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5EE2A3415FD50110014F8CA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C5EE2A3715FD50110014F8CA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C5EE2A3815FD50110014F8CA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C5EE2A3915FD50110014F8CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C5EE2A3C15FD50110014F8CA /* Memesert-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Memesert-Info.plist"; sourceTree = "<group>"; };
+		C5EE2A3E15FD50110014F8CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C5EE2A4015FD50110014F8CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5EE2A4215FD50110014F8CA /* Memesert-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memesert-Prefix.pch"; sourceTree = "<group>"; };
+		C5EE2A4415FD50110014F8CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C5EE2A4615FD50110014F8CA /* MSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSAppDelegate.h; sourceTree = "<group>"; };
+		C5EE2A4715FD50110014F8CA /* MSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAppDelegate.m; sourceTree = "<group>"; };
+		C5EE2A4A15FD50120014F8CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C5EE2A4D15FD50120014F8CA /* Memesert.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memesert.xcdatamodel; sourceTree = "<group>"; };
+		C5EE2A5415FD61250014F8CA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		C5EE2A7515FD72CB0014F8CA /* Meme+Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Meme+Support.h"; sourceTree = "<group>"; };
+		C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Meme+Support.m"; sourceTree = "<group>"; };
+		C5EE2A7815FD73140014F8CA /* Keyword+Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Keyword+Support.h"; sourceTree = "<group>"; };
+		C5EE2A7915FD73140014F8CA /* Keyword+Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Keyword+Support.m"; sourceTree = "<group>"; };
+		C5EE2A7E15FD73410014F8CA /* Meme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meme.h; sourceTree = "<group>"; };
+		C5EE2A7F15FD73420014F8CA /* Meme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meme.m; sourceTree = "<group>"; };
+		C5EE2A8115FD73420014F8CA /* URLEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLEntry.h; sourceTree = "<group>"; };
+		C5EE2A8215FD73420014F8CA /* URLEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLEntry.m; sourceTree = "<group>"; };
+		C5EE2A8415FD73420014F8CA /* Keyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyword.h; sourceTree = "<group>"; };
+		C5EE2A8515FD73420014F8CA /* Keyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keyword.m; sourceTree = "<group>"; };
+		C5EE2A8715FD74FF0014F8CA /* MSMemesertModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMemesertModel.h; sourceTree = "<group>"; };
+		C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMemesertModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C5EE2A2D15FD50110014F8CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5EE2A5515FD61250014F8CA /* Carbon.framework in Frameworks */,
+				C5EE2A3515FD50110014F8CA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C5EE2A2515FD50110014F8CA = {
+			isa = PBXGroup;
+			children = (
+				C5EE2A5415FD61250014F8CA /* Carbon.framework */,
+				C5EE2A3A15FD50110014F8CA /* Memesert */,
+				C5EE2A3315FD50110014F8CA /* Frameworks */,
+				C5EE2A3115FD50110014F8CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C5EE2A3115FD50110014F8CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE2A3015FD50110014F8CA /* Memesert.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5EE2A3315FD50110014F8CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE2A3415FD50110014F8CA /* Cocoa.framework */,
+				C5EE2A3615FD50110014F8CA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5EE2A3615FD50110014F8CA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE2A3715FD50110014F8CA /* AppKit.framework */,
+				C5EE2A3815FD50110014F8CA /* CoreData.framework */,
+				C5EE2A3915FD50110014F8CA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C5EE2A3A15FD50110014F8CA /* Memesert */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE2A4615FD50110014F8CA /* MSAppDelegate.h */,
+				C5EE2A4715FD50110014F8CA /* MSAppDelegate.m */,
+				C5EE2A4915FD50120014F8CA /* MainMenu.xib */,
+				C5EE2A4C15FD50120014F8CA /* Memesert.xcdatamodeld */,
+				C5EE2A8415FD73420014F8CA /* Keyword.h */,
+				C5EE2A8515FD73420014F8CA /* Keyword.m */,
+				C5EE2A8115FD73420014F8CA /* URLEntry.h */,
+				C5EE2A8215FD73420014F8CA /* URLEntry.m */,
+				C5EE2A7E15FD73410014F8CA /* Meme.h */,
+				C5EE2A7F15FD73420014F8CA /* Meme.m */,
+				C5EE2A3B15FD50110014F8CA /* Supporting Files */,
+				C5EE2A7515FD72CB0014F8CA /* Meme+Support.h */,
+				C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */,
+				C5EE2A7815FD73140014F8CA /* Keyword+Support.h */,
+				C5EE2A7915FD73140014F8CA /* Keyword+Support.m */,
+				C5EE2A8715FD74FF0014F8CA /* MSMemesertModel.h */,
+				C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */,
+			);
+			path = Memesert;
+			sourceTree = "<group>";
+		};
+		C5EE2A3B15FD50110014F8CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE2A3C15FD50110014F8CA /* Memesert-Info.plist */,
+				C5EE2A3D15FD50110014F8CA /* InfoPlist.strings */,
+				C5EE2A4015FD50110014F8CA /* main.m */,
+				C5EE2A4215FD50110014F8CA /* Memesert-Prefix.pch */,
+				C5EE2A4315FD50110014F8CA /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C5EE2A2F15FD50110014F8CA /* Memesert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5EE2A5115FD50120014F8CA /* Build configuration list for PBXNativeTarget "Memesert" */;
+			buildPhases = (
+				C5EE2A2C15FD50110014F8CA /* Sources */,
+				C5EE2A2D15FD50110014F8CA /* Frameworks */,
+				C5EE2A2E15FD50110014F8CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Memesert;
+			productName = Memesert;
+			productReference = C5EE2A3015FD50110014F8CA /* Memesert.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C5EE2A2715FD50110014F8CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MS;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = jparishy;
+			};
+			buildConfigurationList = C5EE2A2A15FD50110014F8CA /* Build configuration list for PBXProject "Memesert" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C5EE2A2515FD50110014F8CA;
+			productRefGroup = C5EE2A3115FD50110014F8CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C5EE2A2F15FD50110014F8CA /* Memesert */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C5EE2A2E15FD50110014F8CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5EE2A3F15FD50110014F8CA /* InfoPlist.strings in Resources */,
+				C5EE2A4515FD50110014F8CA /* Credits.rtf in Resources */,
+				C5EE2A4B15FD50120014F8CA /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C5EE2A2C15FD50110014F8CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5EE2A4115FD50110014F8CA /* main.m in Sources */,
+				C5EE2A4815FD50110014F8CA /* MSAppDelegate.m in Sources */,
+				C5EE2A4E15FD50120014F8CA /* Memesert.xcdatamodeld in Sources */,
+				C5EE2A7715FD72CB0014F8CA /* Meme+Support.m in Sources */,
+				C5EE2A7A15FD73140014F8CA /* Keyword+Support.m in Sources */,
+				C5EE2A8015FD73420014F8CA /* Meme.m in Sources */,
+				C5EE2A8315FD73420014F8CA /* URLEntry.m in Sources */,
+				C5EE2A8615FD73420014F8CA /* Keyword.m in Sources */,
+				C5EE2A8915FD74FF0014F8CA /* MSMemesertModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C5EE2A3D15FD50110014F8CA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5EE2A3E15FD50110014F8CA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C5EE2A4315FD50110014F8CA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5EE2A4415FD50110014F8CA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C5EE2A4915FD50120014F8CA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5EE2A4A15FD50120014F8CA /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C5EE2A4F15FD50120014F8CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C5EE2A5015FD50120014F8CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C5EE2A5215FD50120014F8CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Memesert/Memesert-Prefix.pch";
+				INFOPLIST_FILE = "Memesert/Memesert-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C5EE2A5315FD50120014F8CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Memesert/Memesert-Prefix.pch";
+				INFOPLIST_FILE = "Memesert/Memesert-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C5EE2A2A15FD50110014F8CA /* Build configuration list for PBXProject "Memesert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5EE2A4F15FD50120014F8CA /* Debug */,
+				C5EE2A5015FD50120014F8CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5EE2A5115FD50120014F8CA /* Build configuration list for PBXNativeTarget "Memesert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5EE2A5215FD50120014F8CA /* Debug */,
+				C5EE2A5315FD50120014F8CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C5EE2A4C15FD50120014F8CA /* Memesert.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C5EE2A4D15FD50120014F8CA /* Memesert.xcdatamodel */,
+			);
+			currentVersion = C5EE2A4D15FD50120014F8CA /* Memesert.xcdatamodel */;
+			path = Memesert.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C5EE2A2715FD50110014F8CA /* Project object */;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12B19" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Keyword" representedClassName="Keyword" syncable="YES">
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="meme" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Meme" inverseName="keywords" inverseEntity="Meme" syncable="YES"/>
+    </entity>
+    <entity name="Meme" representedClassName="Meme" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keywords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Keyword" inverseName="meme" inverseEntity="Keyword" syncable="YES"/>
+        <relationship name="urlEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="URLEntry" inverseName="meme" inverseEntity="URLEntry" syncable="YES"/>
+    </entity>
+    <entity name="URLEntry" representedClassName="URLEntry" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="meme" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Meme" inverseName="urlEntries" inverseEntity="Meme" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Meme" positionX="160" positionY="192" width="128" height="116"/>
+        <element name="URLEntry" positionX="-108" positionY="-27" width="128" height="75"/>
+        <element name="Keyword" positionX="160" positionY="192" width="128" height="75"/>
+    </elements>
+</model>
