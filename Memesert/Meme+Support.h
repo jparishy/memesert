@@ -13,4 +13,9 @@
 
 @interface Meme (Support)
 
++(NSArray *)memeSearchWithString:(NSString *)searchString model:(MSMemesertModel *)model;
+
++(BOOL)insertMemeWithKeyword:(NSString *)keyword value:(NSString *)value model:(MSMemesertModel *)model;
++(BOOL)populateBaseMemesInModel:(MSMemesertModel *)model;
+
 @end

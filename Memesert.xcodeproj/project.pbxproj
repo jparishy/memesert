@@ -14,13 +14,11 @@
 		C5EE2A4815FD50110014F8CA /* MSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A4715FD50110014F8CA /* MSAppDelegate.m */; };
 		C5EE2A4B15FD50120014F8CA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A4915FD50120014F8CA /* MainMenu.xib */; };
 		C5EE2A4E15FD50120014F8CA /* Memesert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A4C15FD50120014F8CA /* Memesert.xcdatamodeld */; };
-		C5EE2A5515FD61250014F8CA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EE2A5415FD61250014F8CA /* Carbon.framework */; };
 		C5EE2A7715FD72CB0014F8CA /* Meme+Support.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */; };
-		C5EE2A7A15FD73140014F8CA /* Keyword+Support.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A7915FD73140014F8CA /* Keyword+Support.m */; };
-		C5EE2A8015FD73420014F8CA /* Meme.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A7F15FD73420014F8CA /* Meme.m */; };
-		C5EE2A8315FD73420014F8CA /* URLEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A8215FD73420014F8CA /* URLEntry.m */; };
-		C5EE2A8615FD73420014F8CA /* Keyword.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A8515FD73420014F8CA /* Keyword.m */; };
 		C5EE2A8915FD74FF0014F8CA /* MSMemesertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */; };
+		C5F3DD63161CCE0900FB9378 /* Meme.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F3DD62161CCE0900FB9378 /* Meme.m */; };
+		C5F3DD66161CCF5300FB9378 /* BaseMemes.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5F3DD65161CCF5300FB9378 /* BaseMemes.plist */; };
+		C5F3DD68161CDA5C00FB9378 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F3DD67161CDA5C00FB9378 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,19 +36,14 @@
 		C5EE2A4715FD50110014F8CA /* MSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAppDelegate.m; sourceTree = "<group>"; };
 		C5EE2A4A15FD50120014F8CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C5EE2A4D15FD50120014F8CA /* Memesert.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memesert.xcdatamodel; sourceTree = "<group>"; };
-		C5EE2A5415FD61250014F8CA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		C5EE2A7515FD72CB0014F8CA /* Meme+Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Meme+Support.h"; sourceTree = "<group>"; };
 		C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Meme+Support.m"; sourceTree = "<group>"; };
-		C5EE2A7815FD73140014F8CA /* Keyword+Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Keyword+Support.h"; sourceTree = "<group>"; };
-		C5EE2A7915FD73140014F8CA /* Keyword+Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Keyword+Support.m"; sourceTree = "<group>"; };
-		C5EE2A7E15FD73410014F8CA /* Meme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meme.h; sourceTree = "<group>"; };
-		C5EE2A7F15FD73420014F8CA /* Meme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meme.m; sourceTree = "<group>"; };
-		C5EE2A8115FD73420014F8CA /* URLEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLEntry.h; sourceTree = "<group>"; };
-		C5EE2A8215FD73420014F8CA /* URLEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLEntry.m; sourceTree = "<group>"; };
-		C5EE2A8415FD73420014F8CA /* Keyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyword.h; sourceTree = "<group>"; };
-		C5EE2A8515FD73420014F8CA /* Keyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keyword.m; sourceTree = "<group>"; };
 		C5EE2A8715FD74FF0014F8CA /* MSMemesertModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMemesertModel.h; sourceTree = "<group>"; };
 		C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMemesertModel.m; sourceTree = "<group>"; };
+		C5F3DD61161CCE0900FB9378 /* Meme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meme.h; sourceTree = "<group>"; };
+		C5F3DD62161CCE0900FB9378 /* Meme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meme.m; sourceTree = "<group>"; };
+		C5F3DD65161CCF5300FB9378 /* BaseMemes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BaseMemes.plist; sourceTree = "<group>"; };
+		C5F3DD67161CDA5C00FB9378 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5EE2A5515FD61250014F8CA /* Carbon.framework in Frameworks */,
+				C5F3DD68161CDA5C00FB9378 /* Carbon.framework in Frameworks */,
 				C5EE2A3515FD50110014F8CA /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,7 +62,6 @@
 		C5EE2A2515FD50110014F8CA = {
 			isa = PBXGroup;
 			children = (
-				C5EE2A5415FD61250014F8CA /* Carbon.framework */,
 				C5EE2A3A15FD50110014F8CA /* Memesert */,
 				C5EE2A3315FD50110014F8CA /* Frameworks */,
 				C5EE2A3115FD50110014F8CA /* Products */,
@@ -87,6 +79,7 @@
 		C5EE2A3315FD50110014F8CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5F3DD67161CDA5C00FB9378 /* Carbon.framework */,
 				C5EE2A3415FD50110014F8CA /* Cocoa.framework */,
 				C5EE2A3615FD50110014F8CA /* Other Frameworks */,
 			);
@@ -106,21 +99,16 @@
 		C5EE2A3A15FD50110014F8CA /* Memesert */ = {
 			isa = PBXGroup;
 			children = (
+				C5F3DD64161CCF3E00FB9378 /* Resources */,
 				C5EE2A4615FD50110014F8CA /* MSAppDelegate.h */,
 				C5EE2A4715FD50110014F8CA /* MSAppDelegate.m */,
 				C5EE2A4915FD50120014F8CA /* MainMenu.xib */,
 				C5EE2A4C15FD50120014F8CA /* Memesert.xcdatamodeld */,
-				C5EE2A8415FD73420014F8CA /* Keyword.h */,
-				C5EE2A8515FD73420014F8CA /* Keyword.m */,
-				C5EE2A8115FD73420014F8CA /* URLEntry.h */,
-				C5EE2A8215FD73420014F8CA /* URLEntry.m */,
-				C5EE2A7E15FD73410014F8CA /* Meme.h */,
-				C5EE2A7F15FD73420014F8CA /* Meme.m */,
+				C5F3DD61161CCE0900FB9378 /* Meme.h */,
+				C5F3DD62161CCE0900FB9378 /* Meme.m */,
 				C5EE2A3B15FD50110014F8CA /* Supporting Files */,
 				C5EE2A7515FD72CB0014F8CA /* Meme+Support.h */,
 				C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */,
-				C5EE2A7815FD73140014F8CA /* Keyword+Support.h */,
-				C5EE2A7915FD73140014F8CA /* Keyword+Support.m */,
 				C5EE2A8715FD74FF0014F8CA /* MSMemesertModel.h */,
 				C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */,
 			);
@@ -137,6 +125,14 @@
 				C5EE2A4315FD50110014F8CA /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5F3DD64161CCF3E00FB9378 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5F3DD65161CCF5300FB9378 /* BaseMemes.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +190,7 @@
 				C5EE2A3F15FD50110014F8CA /* InfoPlist.strings in Resources */,
 				C5EE2A4515FD50110014F8CA /* Credits.rtf in Resources */,
 				C5EE2A4B15FD50120014F8CA /* MainMenu.xib in Resources */,
+				C5F3DD66161CCF5300FB9378 /* BaseMemes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,11 +205,8 @@
 				C5EE2A4815FD50110014F8CA /* MSAppDelegate.m in Sources */,
 				C5EE2A4E15FD50120014F8CA /* Memesert.xcdatamodeld in Sources */,
 				C5EE2A7715FD72CB0014F8CA /* Meme+Support.m in Sources */,
-				C5EE2A7A15FD73140014F8CA /* Keyword+Support.m in Sources */,
-				C5EE2A8015FD73420014F8CA /* Meme.m in Sources */,
-				C5EE2A8315FD73420014F8CA /* URLEntry.m in Sources */,
-				C5EE2A8615FD73420014F8CA /* Keyword.m in Sources */,
 				C5EE2A8915FD74FF0014F8CA /* MSMemesertModel.m in Sources */,
+				C5F3DD63161CCE0900FB9378 /* Meme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +332,7 @@
 				C5EE2A5315FD50120014F8CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

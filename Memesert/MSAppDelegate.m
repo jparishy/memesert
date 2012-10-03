@@ -1,3 +1,4 @@
+
 //
 //  MSAppDelegate.m
 //  Memesert
@@ -9,19 +10,42 @@
 #import "MSAppDelegate.h"
 
 #import "MSMemesertModel.h"
-#import "Keyword.h"
-#import "Keyword+Support.h"
 #import "Meme.h"
 #import "Meme+Support.h"
-#import "URLEntry.h"
+
+#define KEY_CODE_x ((CGKeyCode)7)
+#define KEY_CODE_c ((CGKeyCode)8)
+#define KEY_CODE_v ((CGKeyCode)9)
+
+// Hacky hack hack from StackOverflow
+// A better method would be appreciated, altogether
+// but I've yet to find another way to get the
+// functionality I want.
+void DCPostCommandAndKey(CGKeyCode key)
+{
+    CGEventSourceRef source = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
+    
+    CGEventRef keyDown = CGEventCreateKeyboardEvent(source, key, TRUE);
+    CGEventSetFlags(keyDown, kCGEventFlagMaskCommand);
+    CGEventRef keyUp = CGEventCreateKeyboardEvent(source, key, FALSE);
+    
+    CGEventPost(kCGAnnotatedSessionEventTap, keyDown);
+    CGEventPost(kCGAnnotatedSessionEventTap, keyUp);
+    
+    CFRelease(keyUp);
+    CFRelease(keyDown);
+    CFRelease(source);
+}
 
 @interface MSAppDelegate ()
 
--(void)sendSimulatedKeystrokeEventsForString:(NSString *)string;
-
-@property (nonatomic, weak) NSRunningApplication *previousApplication;
+@property (nonatomic, strong) NSRunningApplication *previousApplication;
 
 @property (nonatomic, strong) MSMemesertModel *model;
+@property (nonatomic, strong) NSArray *results;
+
+-(void)updateKeywordSearchResults;
+-(void)sendSimulatedKeystrokeEventsForString:(NSString *)string;
 
 @end
 
@@ -32,10 +56,12 @@
 @synthesize managedObjectContext = _managedObjectContext;
 
 @synthesize inputTextField;
+@synthesize resultsTableView;
 
 @synthesize previousApplication;
 
 @synthesize model;
+@synthesize results;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -44,8 +70,12 @@
     model = [[MSMemesertModel alloc] init];
     model.managedObjectContext = self.managedObjectContext;
     
+    [Meme populateBaseMemesInModel:model];
+    
+    self.results = [NSArray array];
+    
     [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
-       
+
         unsigned short keyCode = event.keyCode;
         
         __block MSAppDelegate *bself = self;
@@ -56,7 +86,7 @@
             NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
             for(NSRunningApplication *application in applications)
             {
-                if(application.active)
+                if(application.active && !(application == [NSRunningApplication currentApplication]))
                 {
                     bself.previousApplication = application;
                     break;
@@ -64,58 +94,94 @@
             }
             
             [NSApp activateIgnoringOtherApps:YES];
+            [self.window makeKeyAndOrderFront:self];
         }
     }];
+    
+    [[NSRunningApplication currentApplication] hide];
 }
 
--(NSString *)memeURLForKeyword:(NSString *)keywordValue
+-(void)updateKeywordSearchResults
 {
-    Keyword *keyword = [Keyword keywordForValue:keywordValue model:self.model];
-    NSLog(@"Found keyword: %@", keyword);
+    NSString *keywordSearchText = self.inputTextField.stringValue;
+    NSArray *searchResults = [Meme memeSearchWithString:keywordSearchText model:self.model];
     
-    NSArray *urls = [keyword urlEntriesInModel:self.model];
-    if(urls && urls.count > 0)
+    self.results = [searchResults subarrayWithRange:NSMakeRange(0, MIN(5, searchResults.count))];
+    [self.resultsTableView reloadData];
+}
+
+-(IBAction)sendMemesertionToPreviousApplication:(id)sender
+{
+    [self.window close];
+    
+    if(self.previousApplication)
     {
-        NSLog(@"URLS: %@", urls);
+        if([self.previousApplication activateWithOptions:NSApplicationActivationPolicyRegular])
+        {
+            if(self.results.count > 0)
+            {
+                NSString *response = [self.results[0] value];
+                
+                // Delay lets the other application take focus and regain first responder status
+                [self performSelector:@selector(sendSimulatedKeystrokeEventsForString:) withObject:response afterDelay:0.25f];
+            }
+        }
+        else
+        {
+            NSLog(@"Failed to activate previous application: %@", self.previousApplication.localizedName);
+        }
+    }
+    else
+    {
+        // We can fail silently for now, me thinks...
+    }
+}
+
+-(void)sendSimulatedKeystrokeEventsForString:(NSString *)string;
+{
+    [[NSPasteboard generalPasteboard] clearContents];
+    [[NSPasteboard generalPasteboard] setData:[string dataUsingEncoding:NSUTF8StringEncoding] forType:NSPasteboardTypeString];
+    
+    DCPostCommandAndKey(KEY_CODE_v);
+}
+
+-(void)controlTextDidChange:(NSNotification *)obj
+{
+    [self updateKeywordSearchResults];
+}
+
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return self.results.count;
+}
+
+-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    if(self.results)
+    {
+        if(self.results.count > row)
+        {
+            Meme *meme = [self.results objectAtIndex:row];
+            
+            if([tableColumn.identifier isEqualToString:@"keyword"])
+            {
+                return meme.keyword;
+            }
+            else if([tableColumn.identifier isEqualToString:@"value"])
+            {
+                return meme.value;
+            }
+        }
     }
     
     return @"";
 }
 
--(IBAction)sendMemesertionToPreviousApplication:(id)sender
-{    
-    NSLog(@"Returning to application: %@", self.previousApplication.localizedName);
-    
-    if(self.previousApplication)
-    {
-        if(![self.previousApplication activateWithOptions:NSApplicationActivationPolicyRegular])
-        {
-            NSLog(@"Failed to activate previous application: %@", self.previousApplication.localizedName);
-        }
-    }
-    
-    NSString *keyword = self.inputTextField.stringValue;
-    NSString *response = [self memeURLForKeyword:keyword];
-    
-    // Delay lets the other application take focus and regain first responder status
-    [self performSelector:@selector(sendSimulatedKeystrokeEventsForString:) withObject:response afterDelay:0.1f];
-}
-
--(void)sendSimulatedKeystrokeEventsForString:(NSString *)string;
-{
-    
-    NSString *scriptText = [NSString stringWithFormat:@"tell application \"System Events\" to keystroke \"%@\"", string];
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptText];
-    
-    [script executeAndReturnError:nil];
-}
-
-// Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.jparishy.Memesert" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
-    return [appSupportURL URLByAppendingPathComponent:@"com.jparishy.Memesert"];
+    return [appSupportURL URLByAppendingPathComponent:@"Memesert"];
 }
 
 // Creates if necessary and returns the managed object model for the application.
@@ -174,7 +240,10 @@
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Memesert.storedata"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    
+    NSDictionary *storeOptions = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
+    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:storeOptions error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }
