@@ -73,7 +73,7 @@ void DCPostCommandAndKey(CGKeyCode key)
     [Meme populateBaseMemesInModel:model];
     
     self.results = [NSArray array];
-    
+
     [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
 
         unsigned short keyCode = event.keyCode;
@@ -92,6 +92,9 @@ void DCPostCommandAndKey(CGKeyCode key)
                     break;
                 }
             }
+            
+            self.results = [NSArray array];
+            self.inputTextField.stringValue = @"";
             
             [NSApp activateIgnoringOtherApps:YES];
             [self.window makeKeyAndOrderFront:self];
