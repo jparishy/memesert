@@ -1,4 +1,3 @@
-
 //
 //  MSAppDelegate.m
 //  Memesert
@@ -49,6 +48,9 @@ void DCPostCommandAndKey(CGKeyCode key)
 
 -(NSRunningApplication *)activeApplication;
 
+-(void)registerGlobalEventHandlers;
+-(void)handleGlobalKeyDownEvent:(NSEvent *)event;
+
 @end
 
 @implementation MSAppDelegate
@@ -72,29 +74,36 @@ void DCPostCommandAndKey(CGKeyCode key)
     
     model = [[MSMemesertModel alloc] init];
     self.model.managedObjectContext = self.managedObjectContext;
+    self.results = [NSArray array];
+    
+    [self registerGlobalEventHandlers];
     
     [Meme populateBaseMemesInModel:self.model];
-    
-    self.results = [NSArray array];
+}
 
+-(void)registerGlobalEventHandlers
+{
     [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
-
-        unsigned short keyCode = event.keyCode;
         
-        __block MSAppDelegate *bself = self;
-        
-        unsigned short semicolonKeyCode = 0x29;
-        if(keyCode == semicolonKeyCode && (event.modifierFlags & NSControlKeyMask) && (event.modifierFlags & NSCommandKeyMask))
-        {
-            bself.previousApplication = [bself activeApplication];
-            
-            bself.results = [NSArray array];
-            bself.inputTextField.stringValue = @"";
-            
-            [NSApp activateIgnoringOtherApps:YES];
-            [bself.window makeKeyAndOrderFront:bself];
-        }
+        [self handleGlobalKeyDownEvent:event];
     }];
+}
+
+-(void)handleGlobalKeyDownEvent:(NSEvent *)event
+{
+    unsigned short keyCode = event.keyCode;
+    
+    unsigned short semicolonKeyCode = 0x29;
+    if(keyCode == semicolonKeyCode && (event.modifierFlags & NSControlKeyMask) && (event.modifierFlags & NSCommandKeyMask))
+    {
+        self.previousApplication = [self activeApplication];
+        
+        self.results = [NSArray array];
+        self.inputTextField.stringValue = @"";
+        
+        [NSApp activateIgnoringOtherApps:YES];
+        [self.window makeKeyAndOrderFront:self];
+    }
 }
 
 -(NSRunningApplication *)activeApplication
