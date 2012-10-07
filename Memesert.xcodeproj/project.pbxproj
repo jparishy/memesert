@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5DC6E3B1621581C00E8B385 /* ForgeKeyStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC6E3A1621581C00E8B385 /* ForgeKeyStroke.m */; };
 		C5EE2A3515FD50110014F8CA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EE2A3415FD50110014F8CA /* Cocoa.framework */; };
 		C5EE2A3F15FD50110014F8CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A3D15FD50110014F8CA /* InfoPlist.strings */; };
 		C5EE2A4115FD50110014F8CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A4015FD50110014F8CA /* main.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C5DC6E3A1621581C00E8B385 /* ForgeKeyStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgeKeyStroke.m; sourceTree = "<group>"; };
+		C5DC6E3C1621582800E8B385 /* ForgeKeyStroke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ForgeKeyStroke.h; path = ../ForgeKeyStroke.h; sourceTree = "<group>"; };
 		C5EE2A3015FD50110014F8CA /* Memesert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memesert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EE2A3415FD50110014F8CA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C5EE2A3715FD50110014F8CA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -99,18 +102,20 @@
 		C5EE2A3A15FD50110014F8CA /* Memesert */ = {
 			isa = PBXGroup;
 			children = (
-				C5F3DD64161CCF3E00FB9378 /* Resources */,
 				C5EE2A4615FD50110014F8CA /* MSAppDelegate.h */,
 				C5EE2A4715FD50110014F8CA /* MSAppDelegate.m */,
 				C5EE2A4915FD50120014F8CA /* MainMenu.xib */,
 				C5EE2A4C15FD50120014F8CA /* Memesert.xcdatamodeld */,
 				C5F3DD61161CCE0900FB9378 /* Meme.h */,
 				C5F3DD62161CCE0900FB9378 /* Meme.m */,
-				C5EE2A3B15FD50110014F8CA /* Supporting Files */,
 				C5EE2A7515FD72CB0014F8CA /* Meme+Support.h */,
 				C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */,
 				C5EE2A8715FD74FF0014F8CA /* MSMemesertModel.h */,
 				C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */,
+				C5DC6E3C1621582800E8B385 /* ForgeKeyStroke.h */,
+				C5DC6E3A1621581C00E8B385 /* ForgeKeyStroke.m */,
+				C5F3DD64161CCF3E00FB9378 /* Resources */,
+				C5EE2A3B15FD50110014F8CA /* Supporting Files */,
 			);
 			path = Memesert;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				C5EE2A7715FD72CB0014F8CA /* Meme+Support.m in Sources */,
 				C5EE2A8915FD74FF0014F8CA /* MSMemesertModel.m in Sources */,
 				C5F3DD63161CCE0900FB9378 /* Meme.m in Sources */,
+				C5DC6E3B1621581C00E8B385 /* ForgeKeyStroke.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

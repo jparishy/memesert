@@ -12,29 +12,7 @@
 #import "Meme.h"
 #import "Meme+Support.h"
 
-#define KEY_CODE_x ((CGKeyCode)7)
-#define KEY_CODE_c ((CGKeyCode)8)
-#define KEY_CODE_v ((CGKeyCode)9)
-
-// Hacky hack hack from StackOverflow
-// A better method would be appreciated, altogether
-// but I've yet to find another way to get the
-// functionality I want.
-void DCPostCommandAndKey(CGKeyCode key)
-{
-    CGEventSourceRef source = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
-    
-    CGEventRef keyDown = CGEventCreateKeyboardEvent(source, key, TRUE);
-    CGEventSetFlags(keyDown, kCGEventFlagMaskCommand);
-    CGEventRef keyUp = CGEventCreateKeyboardEvent(source, key, FALSE);
-    
-    CGEventPost(kCGAnnotatedSessionEventTap, keyDown);
-    CGEventPost(kCGAnnotatedSessionEventTap, keyUp);
-    
-    CFRelease(keyUp);
-    CFRelease(keyDown);
-    CFRelease(source);
-}
+#import "ForgeKeyStroke.h"
 
 @interface MSAppDelegate ()
 
@@ -164,8 +142,8 @@ void DCPostCommandAndKey(CGKeyCode key)
     [[NSPasteboard generalPasteboard] setData:[output dataUsingEncoding:NSUTF8StringEncoding] forType:NSPasteboardTypeString];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        usleep(100000); // Why usleep is in microseconds? I am not sure.
-        DCPostCommandAndKey(KEY_CODE_v);
+        usleep(0.1 * 1000 * 1000); // Why usleep is in microseconds? I am not sure.
+        DCPostCommandAndKey(KEY_CODE_V);
     });
 }
 
@@ -302,20 +280,6 @@ void DCPostCommandAndKey(CGKeyCode key)
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
 {
     return [[self managedObjectContext] undoManager];
-}
-
-// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-- (IBAction)saveAction:(id)sender
-{
-    NSError *error = nil;
-    
-    if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
-    }
-    
-    if (![[self managedObjectContext] save:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-    }
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender

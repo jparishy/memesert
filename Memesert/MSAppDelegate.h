@@ -19,7 +19,6 @@
 @property (nonatomic, strong) IBOutlet NSTextField *inputTextField;
 @property (nonatomic, strong) IBOutlet NSTableView *resultsTableView;
 
-- (IBAction)saveAction:(id)sender;
 - (IBAction)sendMemesertionToPreviousApplication:(id)sender;
 
 @end
