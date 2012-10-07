@@ -47,6 +47,8 @@ void DCPostCommandAndKey(CGKeyCode key)
 -(void)updateKeywordSearchResults;
 -(void)sendSimulatedKeystrokeEventsForString:(NSString *)string;
 
+-(NSRunningApplication *)activeApplication;
+
 @end
 
 @implementation MSAppDelegate
@@ -65,12 +67,13 @@ void DCPostCommandAndKey(CGKeyCode key)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    NSRunningApplication *applicationBeforeLaunch = [self activeApplication];
+    [applicationBeforeLaunch activateWithOptions:NSApplicationActivateIgnoringOtherApps];
     
     model = [[MSMemesertModel alloc] init];
-    model.managedObjectContext = self.managedObjectContext;
+    self.model.managedObjectContext = self.managedObjectContext;
     
-    [Meme populateBaseMemesInModel:model];
+    [Meme populateBaseMemesInModel:self.model];
     
     self.results = [NSArray array];
 
@@ -81,27 +84,31 @@ void DCPostCommandAndKey(CGKeyCode key)
         __block MSAppDelegate *bself = self;
         
         unsigned short semicolonKeyCode = 0x29;
-        if(keyCode == semicolonKeyCode && ((event.modifierFlags & NSControlKeyMask) != 0) && ((event.modifierFlags & NSCommandKeyMask) != 0))
+        if(keyCode == semicolonKeyCode && (event.modifierFlags & NSControlKeyMask) && (event.modifierFlags & NSCommandKeyMask))
         {
-            NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-            for(NSRunningApplication *application in applications)
-            {
-                if(application.active && !(application == [NSRunningApplication currentApplication]))
-                {
-                    bself.previousApplication = application;
-                    break;
-                }
-            }
+            bself.previousApplication = [bself activeApplication];
             
-            self.results = [NSArray array];
-            self.inputTextField.stringValue = @"";
+            bself.results = [NSArray array];
+            bself.inputTextField.stringValue = @"";
             
             [NSApp activateIgnoringOtherApps:YES];
-            [self.window makeKeyAndOrderFront:self];
+            [bself.window makeKeyAndOrderFront:bself];
         }
     }];
+}
+
+-(NSRunningApplication *)activeApplication
+{
+    NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
+    for(NSRunningApplication *application in applications)
+    {
+        if(application.active && !(application == [NSRunningApplication currentApplication]))
+        {
+            return application;
+        }
+    }
     
-    [[NSRunningApplication currentApplication] hide];
+    return nil;
 }
 
 -(void)updateKeywordSearchResults
@@ -110,6 +117,7 @@ void DCPostCommandAndKey(CGKeyCode key)
     NSArray *searchResults = [Meme memeSearchWithString:keywordSearchText model:self.model];
     
     self.results = [searchResults subarrayWithRange:NSMakeRange(0, MIN(5, searchResults.count))];
+    
     [self.resultsTableView reloadData];
 }
 
@@ -123,10 +131,9 @@ void DCPostCommandAndKey(CGKeyCode key)
         {
             if(self.results.count > 0)
             {
-                NSString *response = [self.results[0] value];
+                NSString *memeValue = [self.results[0] value];
                 
-                // Delay lets the other application take focus and regain first responder status
-                [self performSelector:@selector(sendSimulatedKeystrokeEventsForString:) withObject:response afterDelay:0.25f];
+                [self sendSimulatedKeystrokeEventsForString:memeValue];
             }
         }
         else
@@ -142,10 +149,15 @@ void DCPostCommandAndKey(CGKeyCode key)
 
 -(void)sendSimulatedKeystrokeEventsForString:(NSString *)string;
 {
-    [[NSPasteboard generalPasteboard] clearContents];
-    [[NSPasteboard generalPasteboard] setData:[string dataUsingEncoding:NSUTF8StringEncoding] forType:NSPasteboardTypeString];
+    NSString *output = [NSString stringWithFormat:@"%@ ", string];
     
-    DCPostCommandAndKey(KEY_CODE_v);
+    [[NSPasteboard generalPasteboard] clearContents];
+    [[NSPasteboard generalPasteboard] setData:[output dataUsingEncoding:NSUTF8StringEncoding] forType:NSPasteboardTypeString];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        usleep(100000); // Why usleep is in microseconds? I am not sure.
+        DCPostCommandAndKey(KEY_CODE_v);
+    });
 }
 
 -(void)controlTextDidChange:(NSNotification *)obj

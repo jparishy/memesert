@@ -14,8 +14,9 @@
 
 +(NSArray *)memeSearchWithString:(NSString *)searchString model:(MSMemesertModel *)model
 {
+    NSSortDescriptor *alphabetical = [NSSortDescriptor sortDescriptorWithKey:@"keyword" ascending:YES];
     NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"keyword contains %@", searchString];
-    NSArray *results = [model managedObjectsForEntityName:@"Meme" predicate:searchPredicate];
+    NSArray *results = [model managedObjectsForEntityName:@"Meme" predicate:searchPredicate sortDescriptors:[NSArray arrayWithObject:alphabetical]];
     
     return results;
 }
