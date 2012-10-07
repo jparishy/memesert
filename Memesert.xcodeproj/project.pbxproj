@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		C5DC6E3A1621581C00E8B385 /* ForgeKeyStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgeKeyStroke.m; sourceTree = "<group>"; };
-		C5DC6E3C1621582800E8B385 /* ForgeKeyStroke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ForgeKeyStroke.h; path = ../ForgeKeyStroke.h; sourceTree = "<group>"; };
+		C5DC6E3D162159D100E8B385 /* ForgeKeyStroke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgeKeyStroke.h; sourceTree = "<group>"; };
 		C5EE2A3015FD50110014F8CA /* Memesert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memesert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EE2A3415FD50110014F8CA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C5EE2A3715FD50110014F8CA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -112,7 +112,7 @@
 				C5EE2A7615FD72CB0014F8CA /* Meme+Support.m */,
 				C5EE2A8715FD74FF0014F8CA /* MSMemesertModel.h */,
 				C5EE2A8815FD74FF0014F8CA /* MSMemesertModel.m */,
-				C5DC6E3C1621582800E8B385 /* ForgeKeyStroke.h */,
+				C5DC6E3D162159D100E8B385 /* ForgeKeyStroke.h */,
 				C5DC6E3A1621581C00E8B385 /* ForgeKeyStroke.m */,
 				C5F3DD64161CCF3E00FB9378 /* Resources */,
 				C5EE2A3B15FD50110014F8CA /* Supporting Files */,
